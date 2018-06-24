@@ -56,13 +56,38 @@ https://vk.com/sg_one
 
 ------------------------------------ Common styles -------------------------
 */
-@hover-link:#da0e2b;
+@creative-color:#da0e2b;
 body{
 	font-family: 'Noto Serif', sans-serif;
 	font-size: 15px;
 	h1, h2, h3, h4, h5{
 		font-family: 'Arimo', sans-serif;
 	}
+	overflow: hidden;
+}
+body.scroll{
+	overflow: scroll!important;
+}
+#preloader{
+	position: fixed;
+	top:0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background:rgba(256,256,256,1);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 999;
+	overflow: hidden;
+	div{
+		background-image: url('/wp-content/themes/morozina/img/loading.gif');
+		width: 40px;
+		height: 40px;
+		background-position: center;
+		background-size: 100%;
+	}
+
 }
 .btn{
 	display: inline-block;
@@ -70,6 +95,7 @@ body{
 	border: 1px solid #fff;
 	text-decoration: none;
 	transition:0.5s ease-in-out;
+	text-transform: uppercase;
 }
 .btn:hover{
 	background: rgba(256,256,256,0.3);
@@ -85,10 +111,30 @@ body{
 .hidden{
 	opacity: 0;
   	animation-duration: 2s;
+  	visibility: hidden;
+}
+.animated{
+	visibility: visible;
 }
 .container{
 	max-width: 1190px;
 	margin:0 auto;
+}
+.creativ-title{
+	position: relative;
+	padding-bottom: 15px;
+	font-size: 2.5em;
+	margin: 30px 0; 
+}
+.creativ-title:after{
+	content: '';
+	display: inline-block;
+	width: 10%;
+	height: 3px;
+	background:@creative-color;
+	position: absolute;
+	bottom: 0px;
+	left: 0;
 }
 #perspective{
 	position: relative;
@@ -159,7 +205,7 @@ body{
     				font-weight: bold;
     			}
     			a:hover{
-    				color: @hover-link;
+    				color: @creative-color;
     			}
     		}
     	}
@@ -203,7 +249,7 @@ body{
 	#perspective{
 		.content-box{
 			header{
-
+				z-index: 100;
 				#logo{
 					a{
 						background-image: url('/wp-content/themes/morozina/img/logo.png')!important;
@@ -263,7 +309,6 @@ body{
 					top:62px;
 					li{
 						font-size: 1.5em;
-						font-family: 'Arimo', sans-serif;
 						display: inline-block;
 						span{
 							padding: 0 10px;					
@@ -294,6 +339,108 @@ body{
 					}
 				}
 
+			}
+			.home-2{
+				padding: 60px;
+				box-sizing: border-box;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				>p{
+					display: none;
+				}
+				.home-2-img{
+					display: inline-block;
+					max-width: 400px;
+					width: 100%;
+				}
+				.home-2-text-box{
+					max-width: 600px;
+					h2{}
+					p{}
+				}
+			}
+			.home-3{
+				background: #262626;
+				box-sizing: border-box;
+				.container{
+					padding: 100px 0;
+					display: flex;
+					justify-content: space-around;
+					align-items: flex-end;
+					.home-3-textbox{
+						.creativ-title{
+							color:#fff;
+						}
+						p{
+							color: #aaaaaa;
+						}
+					}
+					.btns-box{
+						min-width: 300px;
+						text-align: right;
+						a{
+							color:#fff;
+						}
+					}
+				}
+				.home-3-filmList{
+					padding-bottom: 100px;
+					ul{
+						display: flex;
+						li:nth-child(2n){
+							margin: 0 1%;							
+						}
+						li{
+							display: inline-block;
+							width: 33%;
+							overflow: hidden;
+							a{
+								text-decoration: none;
+								position: relative;
+								display: inline-block;
+								height: 100%;
+								img{
+									width: 100%;
+									height: 100%;
+									transition:0.5s ease-in-out;
+								}
+								p{
+										width: 100%;
+										height: 100%;
+									div{
+										position: absolute;
+										top:0;
+										left: 0;
+										right: 0;
+										bottom: 0;
+										color:#fff;
+										width: 100%;
+										height: 100%;
+										display: flex;
+										flex-direction: column;
+										justify-content: center;
+										align-items: center;
+
+										h3{}
+										p{}
+									}
+									
+								}
+							}
+							a:hover{
+								img{
+									-webkit-transform: scale(1.3) rotate(-15deg);
+   	 								transform: scale(1.3) rotate(-15deg);
+								}
+								p{
+									
+										background:rgba(0,0,0,0.8);
+								}
+							}
+						}
+					}
+				}
 			}
 		}	
 	}
